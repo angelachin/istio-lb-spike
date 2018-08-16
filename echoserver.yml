@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: echoserver
+spec:
+  ports:
+  - protocol: TCP
+    port: 5678
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: echoserver
+subsets:
+  - addresses:
+      - ip: 10.0.1.2
+    ports:
+      - port: 32230
